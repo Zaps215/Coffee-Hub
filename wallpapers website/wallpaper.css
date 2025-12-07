@@ -1,0 +1,231 @@
+/* --- 1. Global Setup & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0; 
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 2. Fixed Navigation Bar Styling --- */
+
+/* 💡 AI GENERATED SECTION: Fixed Nav Position */
+.navbar {
+    /* KEY FOR FIXED POSITION */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    background-color: #1a1a1a; /* Dark background */
+    color: white;
+    padding: 15px 40px;
+    
+    /* Flexbox for layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    z-index: 1000; /* Ensures the nav is always on top */
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4CAF50; /* Green accent */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    /* REQUIRED: Add gap to the nav links */
+    gap: 20px; 
+}
+
+.nav-links a {
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4CAF50;
+}
+
+.menu-icon {
+    display: none; /* Hidden on desktop */
+}
+/* 💡 END AI GENERATED SECTION */
+
+
+/* --- 3. Content Adjustment for Fixed Nav --- */
+
+/* REQUIRED: Push content down so it doesn't hide behind the fixed navbar. */
+.content-wrapper {
+    padding-top: 60px; /* Adjust this value to match your nav's height */
+}
+
+
+/* --- 4. Main Layout and Content Styling --- */
+
+.hero-section {
+    background-color: #333; 
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 20px; /* REQUIRED: Gap after the hero section */
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.main-content {
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 40px 0;
+    margin-bottom: 20px; /* REQUIRED: Gap between sections */
+}
+
+h2 {
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 💡 AI GENERATED SECTION: Gallery Flexbox and Gap */
+.wallpaper-gallery {
+    /* REQUIRED: Set display flex and gap */
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    
+    /* Calculation to fit 3 items per row on large screens with a 20px gap */
+    flex: 0 1 calc(33.33% - 14px); 
+    min-width: 250px; /* Minimum width for smaller desktop views */
+}
+
+.wallpaper-placeholder {
+    height: 150px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 4px;
+}
+/* 💡 END AI GENERATED SECTION */
+
+/* 💡 AI GENERATED SECTION: Category Flexbox and Gap */
+.category-list {
+    /* REQUIRED: Set display flex and gap */
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    background-color: #e0f2f1;
+    color: #004d40;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-card:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+/* 💡 END AI GENERATED SECTION */
+
+
+/* --- 5. Footer --- */
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px; /* REQUIRED: Gap before the footer */
+}
+
+
+/* --- 6. Media Queries for Responsiveness --- */
+
+/* When the screen is 850px or smaller (Tablet view) */
+@media (max-width: 850px) {
+    .gallery-item {
+        /* Fit 2 items per row */
+        flex: 0 1 calc(50% - 10px); 
+    }
+}
+
+/* When the screen is 600px or smaller (Mobile view) */
+@media (max-width: 600px) {
+    
+    /* Navigation: Stack the links */
+    .nav-links {
+        display: none; /* Hide for true mobile menu */
+    }
+    
+    .logo {
+        /* Center logo in the absence of links */
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Gallery: Single column */
+    .wallpaper-gallery {
+        flex-direction: column;
+    }
+    
+    .gallery-item {
+        flex: 1 1 100%; /* Full width */
+    }
+    
+    /* Categories: Stack categories */
+    .category-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-card {
+        width: 80%;
+    }
+}
